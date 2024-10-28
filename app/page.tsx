@@ -15,19 +15,9 @@ import ClaimExtr from "../public/claimExtr.svg";
 // import * as motion from "framer-motion/client";
 import Image from "next/image";
 import { useLayoutEffect, useRef, useState } from "react";
-import {
-  motion,
-  useScroll,
-  Variants,
-  useTransform,
-  MotionValue,
-} from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 gsap.registerPlugin(ScrollTrigger);
-
-function useParallax(value: MotionValue<number>, distance: number) {
-  return useTransform(value, [0, 1], [-distance, distance]);
-}
 
 function Home() {
   const [visibleTab, setVisibleTab] = useState(0);
@@ -64,8 +54,9 @@ function Home() {
           pin: true,
           scrub: 1,
           snap: 1 / (horizontalSections.length - 1),
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
-          end: () => "+=" + document.querySelector("#container").offsetWidth,
+          end: () => "+=" + document?.querySelector("#container")?.offsetWidth,
         },
       });
     });
@@ -483,7 +474,7 @@ function Home() {
             </h3>
 
             <p className="text-xl font-light text-center mt-2 mb-4">
-              Get in touch, let's help.
+              Get in touch, let&apos;s help.
             </p>
 
             <form className="py-4 flex flex-col gap-4 ">
