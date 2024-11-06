@@ -14,12 +14,13 @@ import ClaimExtr from "../public/claimExtr.svg";
 
 // import * as motion from "framer-motion/client";
 import Image from "next/image";
-import { useLayoutEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { motion, Variants } from "framer-motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
 function Home() {
+  const [currentTab, setCurrentTab] = useState(0);
   const [visibleTab, setVisibleTab] = useState(0);
 
   const ref = useRef(null);
@@ -40,66 +41,91 @@ function Home() {
     },
   };
 
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      // ---------- selecting all horizontal sections
-      const horizontalSections = gsap.utils.toArray(".horizontal-section");
-
-      // ---------- applying horizontal scroll animation
-      gsap.to(horizontalSections, {
-        xPercent: -100 * (horizontalSections.length - 1),
-        ease: "none",
-        scrollTrigger: {
-          trigger: "#container",
-          pin: true,
-          scrub: 1,
-          snap: 1 / (horizontalSections.length - 1),
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
-          end: () => "+=" + document?.querySelector("#container")?.offsetWidth,
+  const howItWorks = [
+    {
+      imgSource: EnterPrompt,
+      title: "Radio Monitoring",
+      data: [
+        {
+          title: "Search for Keywords Across Radio Transcriptions",
+          desc: "Input keywords related to your topic of interest and search through our database of transcribed radio shows.",
         },
-      });
-    });
-
-    return () => ctx.revert();
-  }, []);
-
-  const radioMonitoring = [
-    {
-      title: "Search for Keywords Across Radio Transcriptions",
-      desc: "Input keywords related to your topic of interest and search through our database of transcribed radio shows.",
+        {
+          title: "View Transcription Results",
+          desc: "The output will display all transcriptions where your keywords were mentioned, labelled with the radio show name, date, and the audio recording for easy reference.",
+        },
+        {
+          title: "Set Up Keyword Alerts",
+          desc: "Set up notifications to alert you whenever your specified keyword appears in any future transcriptions.",
+        },
+      ],
     },
     {
-      title: "View Transcription Results",
-      desc: "The output will display all transcriptions where your keywords were mentioned, labelled with the radio show name, date, and the audio recording for easy reference.",
+      imgSource: Transc,
+      title: "Transcription",
+      data: [
+        {
+          title: "Upload Audio Files",
+          desc: "Upload your radio shows, podcasts, or audio files directly to the platform. Supported languages include Nigerian English, Ghanaian English, and Nigerian Pidgin.",
+        },
+        {
+          title: "Automatic Transcription",
+          desc: "The platform will automatically convert your audio into text.",
+        },
+      ],
     },
     {
-      title: "Set Up Keyword Alerts",
-      desc: "Set up notifications to alert you whenever your specified keyword appears in any future transcriptions.",
-    },
-  ];
-
-  const transcription = [
-    {
-      title: "Upload Audio Files",
-      desc: "Upload your radio shows, podcasts, or audio files directly to the platform. Supported languages include Nigerian English, Ghanaian English, and Nigerian Pidgin.",
-    },
-    {
-      title: "Automatic Transcription",
-      desc: "The platform will automatically convert your audio into text.",
-    },
-  ];
-
-  const claims = [
-    {
-      title: "View Flagged Claims",
-      desc: "Browse the platform for claims that have been automatically flagged by the AI as potentially misleading or false. The system scans all transcriptions and highlights claims that may need further fact-checking.",
-    },
-    {
-      title: "Review the Context",
-      desc: "For each flagged claim, you can review the full context of the statement, including the transcription, the radio show’s name, the audio recording and the date the claim was made.",
+      imgSource: ClaimExtr,
+      title: "claims",
+      data: [
+        {
+          title: "View Flagged Claims",
+          desc: "Browse the platform for claims that have been automatically flagged by the AI as potentially misleading or false. The system scans all transcriptions and highlights claims that may need further fact-checking.",
+        },
+        {
+          title: "Review the Context",
+          desc: "For each flagged claim, you can review the full context of the statement, including the transcription, the radio show’s name, the audio recording and the date the claim was made.",
+        },
+      ],
     },
   ];
+
+  // const radioMonitoring = [
+  //   {
+  //     title: "Search for Keywords Across Radio Transcriptions",
+  //     desc: "Input keywords related to your topic of interest and search through our database of transcribed radio shows.",
+  //   },
+  //   {
+  //     title: "View Transcription Results",
+  //     desc: "The output will display all transcriptions where your keywords were mentioned, labelled with the radio show name, date, and the audio recording for easy reference.",
+  //   },
+  //   {
+  //     title: "Set Up Keyword Alerts",
+  //     desc: "Set up notifications to alert you whenever your specified keyword appears in any future transcriptions.",
+  //   },
+  // ];
+
+  // const transcription = [
+  //   {
+  //     title: "Upload Audio Files",
+  //     desc: "Upload your radio shows, podcasts, or audio files directly to the platform. Supported languages include Nigerian English, Ghanaian English, and Nigerian Pidgin.",
+  //   },
+  //   {
+  //     title: "Automatic Transcription",
+  //     desc: "The platform will automatically convert your audio into text.",
+  //   },
+  // ];
+
+  // const claims = [
+  //   {
+  //     title: "View Flagged Claims",
+  //     desc: "Browse the platform for claims that have been automatically flagged by the AI as potentially misleading or false. The system scans all transcriptions and highlights claims that may need further fact-checking.",
+  //   },
+  //   {
+  //     title: "Review the Context",
+  //     desc: "For each flagged claim, you can review the full context of the statement, including the transcription, the radio show’s name, the audio recording and the date the claim was made.",
+  //   },
+  // ];
   const faq = [
     {
       title: "What is the Dubawa Audio Platform?",
@@ -128,11 +154,11 @@ function Home() {
   };
   return (
     <AppLayout>
-      <div className=" bg-[#131E36] ">
+      <div className=" bg-[#131E36]">
         <motion.div
           variants={sectionVariants}
           ref={ref}
-          className=" text-white h-screen bg-[url('../public/hero-section.svg')] bg-cover bg-no-repeat flex items-center justify-center"
+          className="px-2 text-white h-screen bg-[url('../public/hero-section.svg')] bg-cover bg-no-repeat flex items-center justify-center"
         >
           <div className="max-w-6xl ">
             <h2 className="text-2xl md:text-3xl lg:text-6xl text-center font-bold">
@@ -166,7 +192,9 @@ function Home() {
                   animate={{ opacity: 1, x: -10 }}
                   transition={{ duration: 1 }}
                 >
-                  <p>#Empower media Accountability</p>
+                  <p className="text-xs md:text-[14px]">
+                    #Empower media Accountability
+                  </p>
                 </motion.div>
 
                 <motion.div
@@ -174,7 +202,9 @@ function Home() {
                   animate={{ opacity: 1, x: -10 }}
                   transition={{ duration: 1.1 }}
                 >
-                  <p>#Expand Linguistic Reach</p>
+                  <p className="text-xs md:text-[14px]">
+                    #Expand Linguistic Reach
+                  </p>
                 </motion.div>
               </div>
               <div className="text-[4rem] border border-white p-8 rounded-full ">
@@ -193,7 +223,9 @@ function Home() {
                   animate={{ opacity: 1, x: 10 }}
                   transition={{ duration: 1 }}
                 >
-                  <p>#Empower media Accountability</p>
+                  <p className="text-xs md:text-[14px]">
+                    #Empower media Accountability
+                  </p>
                 </motion.div>
 
                 <motion.div
@@ -201,7 +233,9 @@ function Home() {
                   animate={{ opacity: 1, x: 10 }}
                   transition={{ duration: 1.1 }}
                 >
-                  <p>#Expand Linguistic Reach</p>
+                  <p className="text-xs md:text-[14px]">
+                    #Expand Linguistic Reach
+                  </p>
                 </motion.div>
               </div>
             </section>
@@ -213,7 +247,7 @@ function Home() {
           ref={ref}
           className="py-20 text-slate-900 bg-[#86BEF7] min-h-[60vh] flex flex-col justify-center"
         >
-          <div className="flex items-center container mx-auto ">
+          <div className="flex flex-wrap gap-4 items-center container mx-auto px-2">
             <div className="w-full lg:w-[48%]">
               <h3 className="text-2xl md:text-3xl lg:text-6xl  font-bold">
                 Why Dubawa <br />
@@ -279,149 +313,71 @@ function Home() {
           </div>
         </motion.div>
 
-        <section className="text-slate-900 bg-[#B3BCFF] pt-14 z-50">
+        <section className="text-slate-900 bg-gradient-to-b from-[#B3BCFF] to-[#77B1ED] px-2 py-20 z-50">
           <h3 className="text-2xl  md:text-3xl lg:text-6xl text-center font-bold">
             How It Works
           </h3>
+
+          <div className="h-full  ">
+            <div className="flex flex-wrap w-full items-center gap-2 md:gap-4 justify-center  font-medium my-4 lg:gap-6 ">
+              {howItWorks.map((data, idx) => {
+                return (
+                  <button key={idx} onClick={() => setCurrentTab(idx)}>
+                    <p
+                      className={`text-xs md:text-md lg:text-[15px] rounded-full py-2 px-4  ${
+                        currentTab == idx
+                          ? " bg-slate-300 border "
+                          : " text-gray-600 "
+                      }`}
+                    >
+                      {data.title}
+                    </p>
+                  </button>
+                );
+              })}
+            </div>
+
+            <div className="">
+              {howItWorks.map((data, idx) => {
+                return (
+                  <div
+                    className={`container mx-auto gap-4 lg:gap-8 justify-between items-center pt-4 ${
+                      currentTab == idx ? " flex flex-wrap" : " hidden "
+                    }`}
+                    key={idx}
+                  >
+                    <div className="w-full md:w-[55%] ">
+                      {data.data.map((data, idx) => {
+                        return (
+                          <div
+                            key={idx}
+                            className="flex gap-2 md:gap-4 lg:gap-10 my-4"
+                          >
+                            <div className="flex flex-col items-center gap-2">
+                              <h5>0{idx + 1}</h5>
+                              <div className="w-1 h-10 bg-blue-950" />
+                            </div>
+                            <div>
+                              <h5 className="font-semibold text-xl mb-2">
+                                {data.title}
+                              </h5>
+                              <p>{data.desc}</p>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                    <div className="w-full md:w-[44%] ">
+                      <Image src={data.imgSource} alt="" className="w-full" />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </section>
-        <motion.div
-          variants={sectionVariants}
-          id="container"
-          className=" text-slate-900 bg-gradient-to-b from-[#B3BCFF] to-[#77B1ED] pt-4 z-50"
-        >
-          {/* ---------- section 01 ---------- */}
-          <section className="horizontal-section">
-            <div className="h-full  ">
-              <ul className="flex items-center gap-4 justify-center font-medium my-4 lg:gap-6">
-                <li className="bg-slate-300 rounded-full py-2 px-4 ">
-                  Radio Monitoring
-                </li>
-                <li className="text-gray-600 hidden md:flex">Transcription</li>
-                <li className="text-gray-600 hidden md:flex">
-                  Claim Extraction
-                </li>
-              </ul>
 
-              <div className="container mx-auto flex gap-4 lg:gap-8 justify-between items-center pt-4">
-                <div className="w-full md:w-[55%] ">
-                  {radioMonitoring.map((data, idx) => {
-                    return (
-                      <div
-                        key={idx}
-                        className="flex gap-2 md:gap-4 lg:gap-10 my-4"
-                      >
-                        <div className="flex flex-col items-center gap-2">
-                          <h5>0{idx + 1}</h5>
-                          <div className="w-1 h-10 bg-blue-950" />
-                        </div>
-                        <div>
-                          <h5 className="font-semibold text-xl mb-2">
-                            {data.title}
-                          </h5>
-                          <p>{data.desc}</p>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-                <div className="w-full md:w-[44%] ">
-                  <Image src={EnterPrompt} alt="" className="w-full" />
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* ---------- section 02 ---------- */}
-          <section className="horizontal-section">
-            <div className="h-full">
-              <ul className="flex items-center gap-4 justify-center font-medium my-4 lg:gap-6">
-                <li className="text-gray-600  hidden md:flex">
-                  Radio Monitoring
-                </li>
-                <li className="bg-slate-300 rounded-full py-2 px-4 ">
-                  Transcription
-                </li>
-                <li className="text-gray-600  hidden md:flex">
-                  Claim Extraction
-                </li>
-              </ul>
-              <div className="container mx-auto flex gap-4 lg:gap-8 justify-between items-center pt-4">
-                <div className="w-full md:w-[55%] ">
-                  {transcription.map((data, idx) => {
-                    return (
-                      <div
-                        key={idx}
-                        className="flex gap-2 md:gap-4 lg:gap-10 my-4"
-                      >
-                        <div className="flex flex-col items-center gap-2">
-                          <h5>0{idx + 1}</h5>
-                          <div className="w-1 h-10 bg-blue-950" />
-                        </div>
-                        <div>
-                          <h5 className="font-semibold text-xl mb-2">
-                            {data.title}
-                          </h5>
-                          <p>{data.desc}</p>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-                <div className="w-full md:w-[44%] ">
-                  <Image src={Transc} alt="" className="w-full" />
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* ---------- section 02 ---------- */}
-          <section className="horizontal-section">
-            <div className="h-full">
-              <ul className="flex items-center gap-4 justify-center font-medium my-4 lg:gap-6">
-                <li className="text-gray-600  hidden md:flex">
-                  Radio Monitoring
-                </li>
-                <li className="text-gray-600  hidden md:flex">Transcription</li>
-                <li className="bg-slate-300 rounded-full py-2 px-4 ">
-                  Claim Extraction
-                </li>
-              </ul>
-
-              <div className="container mx-auto flex gap-4 lg:gap-8 justify-between items-center pt-4">
-                <div className="w-full md:w-[55%] ">
-                  {claims.map((data, idx) => {
-                    return (
-                      <div
-                        key={idx}
-                        className="flex gap-2 md:gap-4 lg:gap-10 my-4"
-                      >
-                        <div className="flex flex-col items-center gap-2">
-                          <h5>0{idx + 1}</h5>
-                          <div className="w-1 h-10 bg-blue-950" />
-                        </div>
-                        <div>
-                          <h5 className="font-semibold text-xl mb-2">
-                            {data.title}
-                          </h5>
-                          <p>{data.desc}</p>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-                <div className="w-full md:w-[44%] ">
-                  <Image src={ClaimExtr} alt="" className="w-full" />
-                </div>
-              </div>
-            </div>
-          </section>
-        </motion.div>
-
-        <motion.div
-          variants={sectionVariants}
-          ref={ref}
-          className="py-20 text-white bg-[#131E36] min-h-[60vh] flex flex-col justify-center"
-        >
+        <div className="py-20 px-2 text-white bg-[#131E36] min-h-[60vh] flex flex-col justify-center">
           <h3 className="text-xl  md:text-3xl lg:text-4xl text-center font-bold">
             Frequently Asked Questions
           </h3>
@@ -511,12 +467,9 @@ function Home() {
               </button>
             </form>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          variants={sectionVariants}
-          className="flex flex-col min-h-[50vh] items-center justify-center bg-[url('../public/pre-footer.svg')] bg-cover bg-no-repeat"
-        >
+        <div className="flex flex-col px-2 min-h-[50vh] items-center justify-center bg-[url('../public/pre-footer.svg')] bg-cover bg-no-repeat">
           <div className="max-w-lg">
             <h3 className="text-xl  md:text-3xl lg:text-4xl text-center font-bold mt-2">
               Get Started Now
@@ -531,7 +484,7 @@ function Home() {
               <Link href="#">Get Started</Link>
             </button>
           </div>
-        </motion.div>
+        </div>
       </div>
     </AppLayout>
   );
