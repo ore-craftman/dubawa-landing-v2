@@ -12,8 +12,8 @@ import { FaYoutube } from "react-icons/fa";
 export const Footer = () => {
   return (
     <footer className="flex flex-col min-h-[30vh] py-20 bg-white text-gray-800">
-      <section className="container mx-auto flex flex-wrap px-4 gap-8 justify-between items-start text-sm">
-        <div className="self-center w-full lg:w-[33%]">
+      <section className="container mx-auto flex flex-wrap md:flex-nowrap px-4 gap-8 justify-between items-start text-sm">
+        <div className="mt-2 self-start w-full lg:w-[33%]">
           <Image src={CJIDLogo} alt="TheCJID" width="100" height="100" />
           <p className="mt-2">
             © {new Date().getFullYear()}. Dubawa Audio. CJID. All Rights

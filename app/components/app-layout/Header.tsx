@@ -43,7 +43,7 @@ const MobileNav = () => {
     <DrawerRoot>
       <DrawerBackdrop />
       <DrawerTrigger asChild>
-        <section className="absolute right-4 top-4 lg:hidden">
+        <section className="absolute right-4 top-4 xl:hidden">
           <button>
             <motion.div
               whileHover={{ scale: 1.1 }}
@@ -121,10 +121,10 @@ export const Header = () => {
         </div>
 
         <div className="flex items-center justify-between w-[70%] ">
-          <div className="hidden lg:block">
+          <div className="hidden xl:block">
             <Menu isScrolled={isScrolled} />
           </div>
-          <div className="items-center gap-4 hidden lg:flex">
+          <div className="items-center gap-4 hidden xl:flex">
             <Link href="#">
               <p className="hover:text-[#2C7C9D]">Login</p>
             </Link>

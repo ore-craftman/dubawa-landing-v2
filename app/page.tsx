@@ -342,7 +342,9 @@ function Home() {
                 return (
                   <div
                     className={`container mx-auto gap-4 lg:gap-8 justify-between items-center pt-4 ${
-                      currentTab == idx ? " flex flex-wrap" : " hidden "
+                      currentTab == idx
+                        ? " flex flex-wrap md:flex-nowrap "
+                        : " hidden "
                     }`}
                     key={idx}
                   >
