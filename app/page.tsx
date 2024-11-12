@@ -5,12 +5,12 @@ import { FaPlay } from "react-icons/fa";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { IoMicSharp } from "react-icons/io5";
-import TranscriptionIcon from "../public/transcription.svg";
+import TranscriptionIcon from "../public/trans-icon.svg";
 import ClaimIcon from "../public/claim.svg";
 import RadioIcon from "../public/radio.svg";
-import EnterPrompt from "../public/enter-prompt.svg";
-import Transc from "../public/transc.svg";
-import ClaimExtr from "../public/claimExtr.svg";
+import rmImage from "../public/radio-monitoring.svg";
+import Transc from "../public/transcription.png";
+import ClaimExtr from "../public/claims.svg";
 
 // import * as motion from "framer-motion/client";
 import Image from "next/image";
@@ -43,7 +43,7 @@ function Home() {
 
   const howItWorks = [
     {
-      imgSource: EnterPrompt,
+      imgSource: rmImage,
       title: "Radio Monitoring",
       data: [
         {
@@ -161,13 +161,14 @@ function Home() {
           className="px-2 text-white h-screen bg-[url('../public/hero-section.svg')] bg-cover bg-no-repeat flex items-center justify-center"
         >
           <div className="max-w-6xl ">
-            <h2 className="text-2xl md:text-3xl lg:text-6xl text-center font-bold">
-              Effortless Radio Monitoring, Transcription and Claim Extraction at
-              Your Fingertips.
+            <h2 className="text-3xl md:text-5xl lg:text-8xl text-center font-bold">
+              Unlock the Power of Audio Content
             </h2>
-            <p className="text-xl font-light max-w-3xl mx-auto my-4  text-center">
-              Monitor radio shows, transcribe content, and extract claims—all in
-              one platform designed for African languages.
+            <p className="text-xl font-light max-w-3xl mx-auto mt-6 mb-10  text-center">
+              Transcribe, analyze, and extract claims from any audio
+              content—whether it&apos;s radio, podcasts, YouTube videos, or
+              interviews. The Dubawa Audio Platform brings you closer to the
+              insights you need, across African languages.
             </p>
 
             <div className="flex items-center gap-4 justify-center mt-6">
@@ -254,9 +255,10 @@ function Home() {
                 Audio Platform?
               </h3>
               <p className="text-xl font-light max-w-2xl mt-6">
-                Say goodbye to the hours spent manually transcribing audio
-                recordings. Our advanced algorithms ensure precise and speedy
-                transcriptions, saving you time and effort.
+                Save hours of manual transcription and analysis with our
+                advanced AI-driven platform. From transcribing to extracting
+                insights, we streamline your workflow, empowering you to focus
+                on what matters most.
               </p>
             </div>
             <div className="w-full lg:w-[48%]">
@@ -267,11 +269,14 @@ function Home() {
                     alt="transcription"
                     className="mx-auto mb-2"
                   />
-                  <h4 className="font-semibold text-xl my-2">Transcription</h4>
+                  <h4 className="font-semibold text-lg my-2">
+                    Transcription Made Easy
+                  </h4>
                   <p className="text-sm font-medium text-gray-600">
-                    Easily upload and transcribe audio files with support for
-                    local dialects in Nigerian English, Ghanaian English, and
-                    Pidgin.
+                    Upload and transcribe audio from diverse sources like radio,
+                    podcasts, YouTube videos, and interviews. Our platform
+                    supports local dialects in Nigerian English, Ghanaian
+                    English, and Pidgin, ensuring every word counts.
                   </p>
                 </div>
 
@@ -281,12 +286,13 @@ function Home() {
                     alt="claim extraction"
                     className="mx-auto mb-2"
                   />
-                  <h4 className="font-semibold text-xl my-2">
-                    Claim Extraction
+                  <h4 className="font-semibold text-lg my-2">
+                    Automated Claim Detection
                   </h4>
                   <p className="text-sm font-medium text-gray-600">
-                    Extract potentially false or misleading claims directly from
-                    radio transcriptions. Equip your team with tools to combat
+                    Identify and extract potentially false or misleading claims
+                    automatically. Our tools equip fact-checkers, journalists,
+                    and researchers to stay ahead in the fight against
                     misinformation.
                   </p>
                 </div>
@@ -299,13 +305,15 @@ function Home() {
                     alt="claim extraction"
                     className="mx-auto mb-2"
                   />
-                  <h4 className="font-semibold text-xl my-2">
-                    Radio Monitoring
+                  <h4 className="font-semibold text-lg my-2">
+                    Radio Monitoring with Alerts
                   </h4>
                   <p className="text-sm font-medium text-gray-600">
-                    Search for keywords across transcribed radio sessions in
-                    Nigerian English, Ghanaian English, and Nigerian Pidgin.
-                    Stay informed on what&apos;s being said.
+                    Stay informed on the latest discussions across radio
+                    broadcasts. Search for specific keywords within transcribed
+                    sessions and set up custom keyword alerts. Get notified
+                    instantly when relevant terms appear, keeping you in the
+                    loop and ready to act.
                   </p>
                 </div>
               </div>
@@ -369,7 +377,7 @@ function Home() {
                         );
                       })}
                     </div>
-                    <div className="w-full md:w-[44%] ">
+                    <div className="w-full md:w-[45%] ">
                       <Image src={data.imgSource} alt="" className="w-full" />
                     </div>
                   </div>
