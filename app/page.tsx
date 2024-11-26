@@ -252,11 +252,12 @@ function Home() {
         >
           <div className="container flex flex-wrap items-center px-2 mx-auto gap-4">
             <div className="w-full lg:w-[48%]">
-              <h3 className="text-2xl font-bold md:text-3xl lg:text-6xl">
-                <a href="#features">
-                  Why Dubawa <br />
-                  Audio Platform?
-                </a>
+              <h3
+                id="#features"
+                className="text-2xl font-bold md:text-3xl lg:text-6xl"
+              >
+                Why Dubawa <br />
+                Audio Platform?
               </h3>
               <p className="max-w-2xl mt-6 text-xl font-light">
                 Save hours of manual transcription and analysis with our
@@ -326,8 +327,11 @@ function Home() {
         </motion.div>
 
         <section className="text-slate-900 bg-gradient-to-b from-[#B3BCFF] to-[#77B1ED] px-2 py-20 z-50">
-          <h3 className="text-2xl font-bold text-center md:text-3xl lg:text-6xl">
-            <a href="#how-it-works">How It Works</a>
+          <h3
+            id="how-it-works"
+            className="text-2xl font-bold text-center md:text-3xl lg:text-6xl"
+          >
+            How It Works
           </h3>
 
           <div className="h-full">
@@ -392,8 +396,11 @@ function Home() {
         </section>
 
         <div className="py-20 px-2 text-white bg-[#131E36] min-h-[60vh] flex flex-col justify-center">
-          <h3 className="text-xl font-bold text-center md:text-3xl lg:text-4xl">
-            <a href="#faq">Frequently Asked Questions</a>
+          <h3
+            id="faq"
+            className="text-xl font-bold text-center md:text-3xl lg:text-4xl"
+          >
+            <a>Frequently Asked Questions</a>
           </h3>
 
           <p className="mt-6 mb-10 text-xl font-light text-center">
@@ -439,8 +446,11 @@ function Home() {
           </div>
 
           <div className="w-full lg:w-[400px]  mx-auto py-20 ">
-            <h3 className="mt-2 text-xl font-bold text-center md:text-3xl lg:text-4xl">
-              <a href="#contact-us">Contact Us</a>
+            <h3
+              id="contact-us"
+              className="mt-2 text-xl font-bold text-center md:text-3xl lg:text-4xl"
+            >
+              Contact Us
             </h3>
 
             <p className="mt-2 mb-4 text-xl font-light text-center">
