@@ -93,7 +93,7 @@ export const Footer = () => {
             ].map(({ title, link }, idx) => {
               return (
                 <li key={idx} className="my-2">
-                  <Link href={link}>
+                  <Link href={link} rel="noopener noreferrer" target="_blank">
                     <p>{title}</p>
                   </Link>
                 </li>
