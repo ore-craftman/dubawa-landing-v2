@@ -8,7 +8,7 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { BsInstagram } from "react-icons/bs";
 import { FaYoutube } from "react-icons/fa";
-import dubawaLogo from "@public/dubawaLogo.png";
+import dubawaLogo from "@/public/dubawaLogo.png";
 
 export const Footer = () => {
   return (
