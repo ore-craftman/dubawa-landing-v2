@@ -80,7 +80,6 @@ export const Footer = () => {
           <h5 className="mb-4 text-lg font-semibold">Company</h5>
           <ul>
             {[
-              { title: "Contact us", link: "#contact" },
               {
                 title: "Privacy Policy",
                 link: "https://thecjid.org/privacy-policy/",
