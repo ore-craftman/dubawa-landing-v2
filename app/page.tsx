@@ -128,24 +128,30 @@ function Home() {
   // ];
   const faq = [
     {
-      title: "What is the Dubawa Audio Platform?",
-      desc: "The platform uses advanced AI and machine learning models to transcribe spoken content in audio recordings. It then employs claim detection algorithms to identify statements that may require fact-checking. These claims are presented to human fact-checkers for in-depth verification.",
+      title: "What is the Dubawa Audio Platform, and how does it work?",
+      desc: "The Dubawa Audio platform is a cutting-edge tool developed to automate the process of analysing audio content such as radio, podcasts, YouTube, etc. The platform uses advanced AI and machine learning models to transcribe audio recordings, identify fact-check-worthy claims, and support fact-checkers in verifying the accuracy of information broadcast on radio and other audio platforms.",
     },
     {
-      title: "What is the Dubawa Audio Platform?",
-      desc: "The platform uses advanced AI and machine learning models to transcribe spoken content in audio recordings. It then employs claim detection algorithms to identify statements that may require fact-checking. These claims are presented to human fact-checkers for in-depth verification.",
+      title:
+        "What types of audio content can I upload to the Dubawa Audio Platform?",
+      desc: "Our platform currently supports MP3 and WAV file formats for uploads. However, our YouTube automation features for radio monitoring allow users to automatically record and transcribe any public YouTube video to identify statements that may require fact-checking.",
     },
     {
-      title: "What is the Dubawa Audio Platform?",
-      desc: "The platform uses advanced AI and machine learning models to transcribe spoken content in audio recordings. It then employs claim detection algorithms to identify statements that may require fact-checking. These claims are presented to human fact-checkers for in-depth verification.",
+      title:
+        "What languages does the Dubawa Audio Platform transcription support?",
+      desc: "Our platform only supports Nigerian English, Ghanaian English, and Pidgin languages. However, our platform is consistently evolving, and we plan to enhance linguistic support to cover other local dialects, such as Igbo, Hausa, Yoruba, etc., in the future to allow you to monitor diverse voices across West Africa.",
     },
     {
-      title: "What is the Dubawa Audio Platform?",
-      desc: "The platform uses advanced AI and machine learning models to transcribe spoken content in audio recordings. It then employs claim detection algorithms to identify statements that may require fact-checking. These claims are presented to human fact-checkers for in-depth verification.",
+      title: "How does the Radio Monitoring feature work?",
+      desc: "Our Radio Monitoring feature allows you to search for specific keywords across transcribed radio sessions. Additionally, you can set up keyword alerts to receive notifications when specific keywords appear in new transcriptions, keeping you updated on topics of interest in real-time.",
     },
     {
-      title: "What is the Dubawa Audio Platform?",
-      desc: "The platform uses advanced AI and machine learning models to transcribe spoken content in audio recordings. It then employs claim detection algorithms to identify statements that may require fact-checking. These claims are presented to human fact-checkers for in-depth verification.",
+      title: "Is there a limit to the length of audio files I can upload?",
+      desc: "Currently, a limit of 200 MB file size per upload can be made. If you need to transcribe higher file-size content, consider splitting the audio into segments or contact our support team for guidance.",
+    },
+    {
+      title: "How do I report issues or get help with using the platform?",
+      desc: "If you encounter any issues or need assistance, please contact our support team at web@thecjid.org. We’re here to help you make the most of the Dubawa Audio Platform.",
     },
   ];
 
@@ -160,18 +166,18 @@ function Home() {
           ref={ref}
           className="px-2 text-white h-screen bg-[url('../public/hero-section.svg')] bg-cover bg-no-repeat flex items-center justify-center"
         >
-          <div className="max-w-6xl ">
-            <h2 className="text-3xl md:text-5xl lg:text-8xl text-center font-bold">
+          <div className="max-w-6xl">
+            <h2 className="text-3xl font-bold text-center md:text-5xl lg:text-8xl">
               Unlock the Power of Audio Content
             </h2>
-            <p className="text-xl font-light max-w-3xl mx-auto mt-6 mb-10  text-center">
+            <p className="max-w-3xl mx-auto mt-6 mb-10 text-xl font-light text-center">
               Transcribe, analyze, and extract claims from any audio
               content—whether it&apos;s radio, podcasts, YouTube videos, or
               interviews. The Dubawa Audio Platform brings you closer to the
               insights you need, across African languages.
             </p>
 
-            <div className="flex items-center gap-4 justify-center mt-6">
+            <div className="flex items-center justify-center mt-6 gap-4">
               <Link href="#">
                 <p className="bg-white hover:bg-slate-200 text-[#2C7C9D] font-medium px-6 py-3 rounded-xl">
                   Get Started
@@ -186,7 +192,7 @@ function Home() {
               </Link>
             </div>
 
-            <section className="flex text-white text-center items-center justify-center mt-14 gap-6">
+            <section className="flex items-center justify-center text-center text-white mt-14 gap-6">
               <div className="flex flex-col gap-4">
                 <motion.div
                   initial={{ opacity: 0, x: -110 }}
@@ -248,13 +254,13 @@ function Home() {
           ref={ref}
           className="py-20 text-slate-900 bg-[#86BEF7] min-h-[60vh] flex flex-col justify-center"
         >
-          <div className="flex flex-wrap gap-4 items-center container mx-auto px-2">
+          <div className="container flex flex-wrap items-center px-2 mx-auto gap-4">
             <div className="w-full lg:w-[48%]">
-              <h3 className="text-2xl md:text-3xl lg:text-6xl  font-bold">
+              <h3 className="text-2xl font-bold md:text-3xl lg:text-6xl">
                 Why Dubawa <br />
                 Audio Platform?
               </h3>
-              <p className="text-xl font-light max-w-2xl mt-6">
+              <p className="max-w-2xl mt-6 text-xl font-light">
                 Save hours of manual transcription and analysis with our
                 advanced AI-driven platform. From transcribing to extracting
                 insights, we streamline your workflow, empowering you to focus
@@ -263,13 +269,13 @@ function Home() {
             </div>
             <div className="w-full lg:w-[48%]">
               <div className="flex gap-4 lg:gap-8">
-                <div className="text-center bg-slate-200 p-4 md:p-8 rounded-3xl hover:shadow-xl">
+                <div className="p-4 text-center bg-slate-200 md:p-8 rounded-3xl hover:shadow-xl">
                   <Image
                     src={TranscriptionIcon}
                     alt="transcription"
                     className="mx-auto mb-2"
                   />
-                  <h4 className="font-semibold text-lg my-2">
+                  <h4 className="my-2 text-lg font-semibold">
                     Transcription Made Easy
                   </h4>
                   <p className="text-sm font-medium text-gray-600">
@@ -280,13 +286,13 @@ function Home() {
                   </p>
                 </div>
 
-                <div className="text-center bg-slate-200 p-4 md:p-8 rounded-3xl hover:shadow-xl">
+                <div className="p-4 text-center bg-slate-200 md:p-8 rounded-3xl hover:shadow-xl">
                   <Image
                     src={ClaimIcon}
                     alt="claim extraction"
                     className="mx-auto mb-2"
                   />
-                  <h4 className="font-semibold text-lg my-2">
+                  <h4 className="my-2 text-lg font-semibold">
                     Automated Claim Detection
                   </h4>
                   <p className="text-sm font-medium text-gray-600">
@@ -298,14 +304,14 @@ function Home() {
                 </div>
               </div>
 
-              <div className="text-center bg-slate-200 p-4 md:px-8 md:py-10 rounded-3xl hover:shadow-xl mt-4 lg:mt-8 ">
+              <div className="p-4 mt-4 text-center bg-slate-200 md:px-8 md:py-10 rounded-3xl hover:shadow-xl lg:mt-8">
                 <div className="max-w-md mx-auto">
                   <Image
                     src={RadioIcon}
                     alt="claim extraction"
                     className="mx-auto mb-2"
                   />
-                  <h4 className="font-semibold text-lg my-2">
+                  <h4 className="my-2 text-lg font-semibold">
                     Radio Monitoring with Alerts
                   </h4>
                   <p className="text-sm font-medium text-gray-600">
@@ -322,12 +328,12 @@ function Home() {
         </motion.div>
 
         <section className="text-slate-900 bg-gradient-to-b from-[#B3BCFF] to-[#77B1ED] px-2 py-20 z-50">
-          <h3 className="text-2xl  md:text-3xl lg:text-6xl text-center font-bold">
+          <h3 className="text-2xl font-bold text-center md:text-3xl lg:text-6xl">
             How It Works
           </h3>
 
-          <div className="h-full  ">
-            <div className="flex flex-wrap w-full items-center gap-2 md:gap-4 justify-center  font-medium my-4 lg:gap-6 ">
+          <div className="h-full">
+            <div className="flex flex-wrap items-center justify-center w-full my-4 font-medium gap-2 md:gap-4 lg:gap-6">
               {howItWorks.map((data, idx) => {
                 return (
                   <button key={idx} onClick={() => setCurrentTab(idx)}>
@@ -361,14 +367,14 @@ function Home() {
                         return (
                           <div
                             key={idx}
-                            className="flex gap-2 md:gap-4 lg:gap-10 my-4"
+                            className="flex my-4 gap-2 md:gap-4 lg:gap-10"
                           >
                             <div className="flex flex-col items-center gap-2">
                               <h5>0{idx + 1}</h5>
                               <div className="w-1 h-10 bg-blue-950" />
                             </div>
                             <div>
-                              <h5 className="font-semibold text-xl mb-2">
+                              <h5 className="mb-2 text-xl font-semibold">
                                 {data.title}
                               </h5>
                               <p>{data.desc}</p>
@@ -388,11 +394,11 @@ function Home() {
         </section>
 
         <div className="py-20 px-2 text-white bg-[#131E36] min-h-[60vh] flex flex-col justify-center">
-          <h3 className="text-xl  md:text-3xl lg:text-4xl text-center font-bold">
+          <h3 className="text-xl font-bold text-center md:text-3xl lg:text-4xl">
             Frequently Asked Questions
           </h3>
 
-          <p className="text-xl font-light text-center mt-6 mb-10">
+          <p className="mt-6 mb-10 text-xl font-light text-center">
             Answers to any questions you might have, have more? Contact us
           </p>
 
@@ -402,7 +408,7 @@ function Home() {
                 <div className="border-b border-slate-200" key={idx}>
                   <button
                     onClick={() => toggleAccordion(idx)}
-                    className="w-full flex justify-between items-center py-5 text-white"
+                    className="flex items-center justify-between w-full py-5 text-white"
                   >
                     <h5
                       className={`font-semibold text-lg ${
@@ -435,35 +441,35 @@ function Home() {
           </div>
 
           <div className="w-full lg:w-[400px]  mx-auto py-20 ">
-            <h3 className="text-xl  md:text-3xl lg:text-4xl text-center font-bold mt-2">
+            <h3 className="mt-2 text-xl font-bold text-center md:text-3xl lg:text-4xl">
               Contact Us
             </h3>
 
-            <p className="text-xl font-light text-center mt-2 mb-4">
+            <p className="mt-2 mb-4 text-xl font-light text-center">
               Get in touch, let&apos;s help.
             </p>
 
-            <form className="py-4 flex flex-col gap-4 ">
+            <form className="flex flex-col py-4 gap-4">
               <div>
-                <label className="block text-sm font-medium mb-1">Name</label>
+                <label className="block mb-1 text-sm font-medium">Name</label>
                 <input
                   type="text"
-                  className="rounded-md bg-slate-200 w-full p-4 text-slate-800"
+                  className="w-full p-4 rounded-md bg-slate-200 text-slate-800"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-1">
+                <label className="block mb-1 text-sm font-medium">
                   Email Address
                 </label>
                 <input
                   type="email"
-                  className="rounded-md bg-slate-200 w-full p-4 text-slate-800"
+                  className="w-full p-4 rounded-md bg-slate-200 text-slate-800"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-1">
+                <label className="block mb-1 text-sm font-medium">
                   Message
                 </label>
                 <textarea className="rounded-md bg-slate-200 w-full text-slate-800 p-2 min-h-[120px]" />
@@ -481,11 +487,11 @@ function Home() {
 
         <div className="flex flex-col px-2 min-h-[50vh] items-center justify-center bg-[url('../public/pre-footer.svg')] bg-cover bg-no-repeat">
           <div className="max-w-lg">
-            <h3 className="text-xl  md:text-3xl lg:text-4xl text-center font-bold mt-2">
+            <h3 className="mt-2 text-xl font-bold text-center md:text-3xl lg:text-4xl">
               Get Started Now
             </h3>
 
-            <p className="text-xl font-light text-center mt-2 mb-4">
+            <p className="mt-2 mb-4 text-xl font-light text-center">
               Effortless Radio Monitoring, Transcription and Claim Extraction at
               Your Fingertips.
             </p>
