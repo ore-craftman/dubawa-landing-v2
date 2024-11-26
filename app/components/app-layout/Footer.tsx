@@ -23,11 +23,41 @@ export const Footer = () => {
           </p>
 
           <div className="flex items-center mt-2 text-2xl gap-2 md:ga-4">
-            <FaFacebook />
-            <FaLinkedin />
-            <FaTwitter />
-            <BsInstagram />
-            <FaYoutube />
+            <Link
+              href="https://web.facebook.com/TheCJID"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <FaFacebook />
+            </Link>
+            <Link
+              href="https://www.linkedin.com/company/thecjid/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <FaLinkedin />
+            </Link>
+            <Link
+              href="https://twitter.com/CJIDAfrica"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <FaTwitter />
+            </Link>
+            <Link
+              href="https://www.instagram.com/thecjid/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <BsInstagram />
+            </Link>
+            <Link
+              href="https://youtube.com/@centreforjournalisminnovat3341"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <FaYoutube />
+            </Link>
           </div>
         </div>
 
@@ -51,8 +81,14 @@ export const Footer = () => {
           <ul>
             {[
               { title: "Contact us", link: "#contact" },
-              { title: "Privacy Policy", link: "privacy-policy" },
-              { title: "Terms of Service", link: "terms-of-service" },
+              {
+                title: "Privacy Policy",
+                link: "https://thecjid.org/privacy-policy/",
+              },
+              {
+                title: "Terms of Service",
+                link: "https://thecjid.org/terms-of-service/",
+              },
             ].map(({ title, link }, idx) => {
               return (
                 <li key={idx} className="my-2">
