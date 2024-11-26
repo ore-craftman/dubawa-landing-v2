@@ -486,7 +486,7 @@ function Home() {
         </div>
 
         <div className="flex flex-col px-2 min-h-[50vh] items-center justify-center bg-[url('../public/pre-footer.svg')] bg-cover bg-no-repeat">
-          <div className="max-w-lg">
+          <div className="max-w-lg text-black">
             <h3 className="mt-2 text-xl font-bold text-center md:text-3xl lg:text-4xl">
               Get Started Now
             </h3>
