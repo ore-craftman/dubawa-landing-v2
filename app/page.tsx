@@ -250,12 +250,12 @@ function Home() {
           ref={ref}
           className="py-20 text-slate-900 bg-[#86BEF7] min-h-[60vh] flex flex-col justify-center"
         >
-          <div className="container flex flex-wrap items-center px-2 mx-auto gap-4">
+          <div
+            id="#features"
+            className="container flex flex-wrap items-center px-2 mx-auto gap-4"
+          >
             <div className="w-full lg:w-[48%]">
-              <h3
-                id="#features"
-                className="text-2xl font-bold md:text-3xl lg:text-6xl"
-              >
+              <h3 className="text-2xl font-bold md:text-3xl lg:text-6xl">
                 Why Dubawa <br />
                 Audio Platform?
               </h3>
