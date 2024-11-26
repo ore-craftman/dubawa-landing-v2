@@ -15,8 +15,10 @@ export const Footer = () => {
     <footer className="flex flex-col min-h-[30vh] py-20 bg-white text-gray-800">
       <section className="container flex flex-wrap items-start justify-between px-4 mx-auto text-sm md:flex-nowrap gap-8">
         <div className="mt-2 self-start w-full lg:w-[33%]">
-          <Image src={CJIDLogo} alt="TheCJID" width="100" height="100" />
-          <Image src={dubawaLogo} alt="TheCJID" width="100" height="100" />
+          <div className="flex items-center gap-3">
+            <Image src={CJIDLogo} alt="TheCJID" width="100" height="100" />
+            <Image src={dubawaLogo} alt="TheCJID" width="100" height="100" />
+          </div>
           <p className="mt-2">
             © {new Date().getFullYear()}. Dubawa Audio. CJID. All Rights
             Reserved
