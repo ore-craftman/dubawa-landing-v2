@@ -199,9 +199,7 @@ function Home() {
                   animate={{ opacity: 1, x: -10 }}
                   transition={{ duration: 1 }}
                 >
-                  <p className="text-xs md:text-[14px]">
-                    #Empower media Accountability
-                  </p>
+                  <p className="text-xs md:text-[14px]">AIForAccountability</p>
                 </motion.div>
 
                 <motion.div
@@ -209,9 +207,7 @@ function Home() {
                   animate={{ opacity: 1, x: -10 }}
                   transition={{ duration: 1.1 }}
                 >
-                  <p className="text-xs md:text-[14px]">
-                    #Expand Linguistic Reach
-                  </p>
+                  <p className="text-xs md:text-[14px]">ClaimDetection</p>
                 </motion.div>
               </div>
               <div className="text-[4rem] border border-white p-8 rounded-full ">
@@ -231,7 +227,7 @@ function Home() {
                   transition={{ duration: 1 }}
                 >
                   <p className="text-xs md:text-[14px]">
-                    #Empower media Accountability
+                    Expand Linguistic Reach
                   </p>
                 </motion.div>
 
@@ -241,7 +237,7 @@ function Home() {
                   transition={{ duration: 1.1 }}
                 >
                   <p className="text-xs md:text-[14px]">
-                    #Expand Linguistic Reach
+                    Empower Media Accountability
                   </p>
                 </motion.div>
               </div>
