@@ -8,19 +8,21 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { BsInstagram } from "react-icons/bs";
 import { FaYoutube } from "react-icons/fa";
+import dubawaLogo from "@public/dubawaLogo.png";
 
 export const Footer = () => {
   return (
     <footer className="flex flex-col min-h-[30vh] py-20 bg-white text-gray-800">
-      <section className="container mx-auto flex flex-wrap md:flex-nowrap px-4 gap-8 justify-between items-start text-sm">
+      <section className="container flex flex-wrap items-start justify-between px-4 mx-auto text-sm md:flex-nowrap gap-8">
         <div className="mt-2 self-start w-full lg:w-[33%]">
           <Image src={CJIDLogo} alt="TheCJID" width="100" height="100" />
+          <Image src={dubawaLogo} alt="TheCJID" width="100" height="100" />
           <p className="mt-2">
             © {new Date().getFullYear()}. Dubawa Audio. CJID. All Rights
             Reserved
           </p>
 
-          <div className="flex items-center gap-2 md:ga-4 mt-2 text-2xl">
+          <div className="flex items-center mt-2 text-2xl gap-2 md:ga-4">
             <FaFacebook />
             <FaLinkedin />
             <FaTwitter />
@@ -30,7 +32,7 @@ export const Footer = () => {
         </div>
 
         <div className="w-full lg:w-[33%]">
-          <h5 className="text-lg font-semibold mb-4">Quick Links</h5>
+          <h5 className="mb-4 text-lg font-semibold">Quick Links</h5>
           <ul>
             {navigationItems.map(({ title, link }, idx) => {
               return (
@@ -45,7 +47,7 @@ export const Footer = () => {
         </div>
 
         <div className="w-full lg:w-[33%]">
-          <h5 className="text-lg font-semibold mb-4">Company</h5>
+          <h5 className="mb-4 text-lg font-semibold">Company</h5>
           <ul>
             {[
               { title: "Contact us", link: "#contact" },
@@ -63,10 +65,10 @@ export const Footer = () => {
           </ul>
         </div>
 
-        <div className="self-end ">
+        <div className="self-end">
           <button className="fixed bottom-4 right-4">
             <Image src={GoUp} className="w-10 h-10 mx-auto" alt="" />
-            <p className="font-medium mt-1 text-gray-600">Scroll Up</p>
+            <p className="mt-1 font-medium text-gray-600">Scroll Up</p>
           </button>
         </div>
       </section>
