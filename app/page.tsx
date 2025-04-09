@@ -164,10 +164,10 @@ function Home() {
         <motion.div
           variants={sectionVariants}
           ref={ref}
-          className="px-2 text-white h-screen bg-[url('../public/hero-section.svg')] bg-cover bg-no-repeat flex items-center justify-center"
+          className="px-2 text-white min-h-screen bg-[url('../public/hero-section.svg')] bg-cover bg-no-repeat flex items-center justify-center"
         >
           <div className="max-w-6xl">
-            <h2 className="text-3xl font-bold text-center md:text-5xl lg:text-8xl">
+            <h2 className="text-3xl font-bold text-center md:text-5xl lg:text-7xl xl:text-8xl mt-14">
               Unlock the Power of Audio Content
             </h2>
             <p className="max-w-3xl mx-auto mt-6 mb-10 text-xl font-light text-center">
@@ -177,8 +177,12 @@ function Home() {
               insights you need, across African languages.
             </p>
 
-            <div className="flex items-center justify-center mt-6 gap-4">
-              <Link href="#">
+            <div className="flex items-center justify-center mt-6  gap-4">
+              <Link
+                href="https://dubawa-dashboard-v2.vercel.app/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <p className="bg-white hover:bg-slate-200 text-[#2C7C9D] font-medium px-6 py-3 rounded-xl">
                   Get Started
                 </p>
@@ -192,7 +196,7 @@ function Home() {
               </Link>
             </div>
 
-            <section className="flex items-center justify-center text-center text-white mt-14 gap-6">
+            <section className="flex items-center justify-center text-center text-white mt-10 gap-6 ">
               <div className="flex flex-col gap-4">
                 <motion.div
                   initial={{ opacity: 0, x: -110 }}

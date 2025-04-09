@@ -11,6 +11,13 @@ import { FaYoutube } from "react-icons/fa";
 import dubawaLogo from "@/public/dubawaLogo.png";
 
 export const Footer = () => {
+  const scrollToTopHandler = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <footer className="flex flex-col min-h-[30vh] py-20 bg-white text-gray-800">
       <section className="container flex flex-wrap items-start justify-between px-4 mx-auto text-sm md:flex-nowrap gap-8">
@@ -103,7 +110,10 @@ export const Footer = () => {
         </div>
 
         <div className="self-end">
-          <button className="fixed bottom-4 right-4">
+          <button
+            className="fixed bottom-4 right-4"
+            onClick={scrollToTopHandler}
+          >
             <Image src={GoUp} className="w-10 h-10 mx-auto" alt="" />
             <p className="mt-1 font-medium text-gray-600">Scroll Up</p>
           </button>

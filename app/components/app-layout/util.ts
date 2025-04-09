@@ -3,10 +3,10 @@ export const navigationItems = [
     title: "Home",
     link: "/",
   },
-  {
-    title: "Features",
-    link: "#features",
-  },
+  // {
+  //   title: "Features",
+  //   link: "#features",
+  // },
   {
     title: "How It Works",
     link: "#how-it-works",

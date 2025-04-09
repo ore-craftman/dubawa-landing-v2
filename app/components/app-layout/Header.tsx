@@ -94,7 +94,7 @@ export const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
+      if (window.scrollY > 0) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -126,7 +126,7 @@ export const Header = () => {
           </div>
           <div className="items-center gap-4 hidden xl:flex">
             <Link href="#">
-              <p className="hover:text-[#2C7C9D]">Login</p>
+              <p className="hover:text-[#2C7C9D] font-semibold">Login</p>
             </Link>
             <Link href="#">
               <p className="bg-white hover:bg-slate-200 text-[#2C7C9D] font-medium px-6 py-3 rounded-xl">
