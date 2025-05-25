@@ -509,7 +509,7 @@ function Home() {
             </p>
 
             <button className="bg-black hover:bg-black/80 cursor-pointer text-[#fff] font-medium px-6 py-3 rounded-xl mx-auto block">
-              <Link href="#">Get Started</Link>
+              <Link href="https://app.dubawa.ai/sign-up" target="_blank">Get Started</Link>
             </button>
           </div>
         </div>
