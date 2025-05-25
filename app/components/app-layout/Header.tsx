@@ -72,10 +72,10 @@ const MobileNav = () => {
           </ul>
 
           <div className="gap-8 mt-4 flex flex-col ml-5">
-            <Link href="#">
+            <Link  href="https://app.dubawa.ai" target="_blank">
               <p className="hover:text-[#2C7C9D]">Login</p>
             </Link>
-            <Link href="#">
+            <Link href="https://app.dubawa.ai/sign-up" target="_blank">
               <p className="bg-white hover:bg-slate-200 text-[#2C7C9D] font-medium text-center px-6 py-3 rounded-xl">
                 Get Started
               </p>
@@ -125,10 +125,10 @@ export const Header = () => {
             <Menu isScrolled={isScrolled} />
           </div>
           <div className="items-center gap-4 hidden xl:flex">
-            <Link href="#">
+            <Link  href="https://app.dubawa.ai" target="_blank">
               <p className="hover:text-[#2C7C9D] font-semibold">Login</p>
             </Link>
-            <Link href="#">
+            <Link  href="https://app.dubawa.ai/sign-up" target="_blank">
               <p className="bg-white hover:bg-slate-200 text-[#2C7C9D] font-medium px-6 py-3 rounded-xl">
                 Get Started
               </p>
