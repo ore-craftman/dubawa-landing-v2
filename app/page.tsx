@@ -179,7 +179,7 @@ function Home() {
 
             <div className="flex items-center justify-center mt-6  gap-4">
               <Link
-                href="https://dubawa-dashboard-v2.vercel.app/"
+                href="https://app.dubawa.ai/sign-up"
                 target="_blank"
                 rel="noreferrer"
               >
