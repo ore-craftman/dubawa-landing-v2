@@ -16,12 +16,25 @@ import ClaimExtr from "../public/claims.svg";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { motion, Variants } from "framer-motion";
+import dynamic from 'next/dynamic';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 gsap.registerPlugin(ScrollTrigger);
+
+const ToastContainer = dynamic(() => import('react-toastify').then(mod => mod.ToastContainer), {
+  ssr: false
+});
 
 function Home() {
   const [currentTab, setCurrentTab] = useState(0);
   const [visibleTab, setVisibleTab] = useState(0);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
 
   const ref = useRef(null);
   // const { scrollYProgress } = useScroll({ target: ref });
@@ -84,7 +97,7 @@ function Home() {
         },
         {
           title: "Review the Context",
-          desc: "For each flagged claim, you can review the full context of the statement, including the transcription, the radio show’s name, the audio recording and the date the claim was made.",
+          desc: "For each flagged claim, you can review the full context of the statement, including the transcription, the radio show's name, the audio recording and the date the claim was made.",
         },
       ],
     },
@@ -123,7 +136,7 @@ function Home() {
   //   },
   //   {
   //     title: "Review the Context",
-  //     desc: "For each flagged claim, you can review the full context of the statement, including the transcription, the radio show’s name, the audio recording and the date the claim was made.",
+  //     desc: "For each flagged claim, you can review the full context of the statement, including the transcription, the radio show's name, the audio recording and the date the claim was made.",
   //   },
   // ];
   const faq = [
@@ -151,16 +164,75 @@ function Home() {
     },
     {
       title: "How do I report issues or get help with using the platform?",
-      desc: "If you encounter any issues or need assistance, please contact our support team at web@thecjid.org. We’re here to help you make the most of the Dubawa Audio Platform.",
+      desc: "If you encounter any issues or need assistance, please contact our support team at web@thecjid.org. We're here to help you make the most of the Dubawa Audio Platform.",
     },
   ];
 
   const toggleAccordion = (idx: number) => {
     setVisibleTab(idx);
   };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://da.thecjidportal.com/contact-us", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          message: formData.message
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
+
+      toast.success("Your message has been sent successfully!", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        message: ""
+      });
+    } catch (error) {
+      toast.error("Failed to send message. Please try again later.", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <AppLayout>
       <div className=" bg-[#131E36]">
+        <ToastContainer />
         <motion.div
           variants={sectionVariants}
           ref={ref}
@@ -461,11 +533,14 @@ function Home() {
               Get in touch, let&apos;s help.
             </p>
 
-            <form className="flex flex-col py-4 gap-4">
+            <form onSubmit={handleSubmit} className="flex flex-col py-4 gap-4">
               <div>
                 <label className="block mb-1 text-sm font-medium">Name</label>
                 <input
                   type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
                   className="w-full p-4 rounded-md bg-slate-200 text-slate-800"
                 />
               </div>
@@ -476,6 +551,10 @@ function Home() {
                 </label>
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
                   className="w-full p-4 rounded-md bg-slate-200 text-slate-800"
                 />
               </div>
@@ -484,14 +563,21 @@ function Home() {
                 <label className="block mb-1 text-sm font-medium">
                   Message
                 </label>
-                <textarea className="rounded-md bg-slate-200 w-full text-slate-800 p-2 min-h-[120px]" />
+                <textarea 
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  required
+                  className="rounded-md bg-slate-200 w-full text-slate-800 p-2 min-h-[120px]" 
+                />
               </div>
 
               <button
-                className="font-semibold bg-[#2C7C9D] p-4 mt-2 rounded-md hover:bg-[#2C7C9D]/70"
-                role="submit"
+                type="submit"
+                disabled={isSubmitting}
+                className="font-semibold bg-[#2C7C9D] p-4 mt-2 rounded-md hover:bg-[#2C7C9D]/70 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                SUBMIT
+                {isSubmitting ? "SENDING..." : "SUBMIT"}
               </button>
             </form>
           </div>
