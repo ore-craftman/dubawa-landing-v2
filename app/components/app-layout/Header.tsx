@@ -4,6 +4,7 @@ import { navigationItems } from "./util";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Logo from "../../../public/logo.svg";
+
 import { TbMenu2 } from "react-icons/tb";
 import { motion } from "framer-motion";
 
@@ -114,8 +115,8 @@ export const Header = () => {
       <section className="flex items-center justify-between container mx-auto py-4">
         <div className="">
           <Link href="/">
-            <div className="bg-white text-gray-700 font-bold p-2 rounded-lg">
-              <Image src={Logo} alt="" width={30} height={30} />
+            <div className="bg-white text-gray-700 font-bold py-3 px-4 rounded-lg">
+              <Image src={Logo} alt="" width={130} height={30} />
             </div>
           </Link>
         </div>
