@@ -8,6 +8,10 @@ export const navigationItems = [
   //   link: "#features",
   // },
   {
+    title: "Transcription",
+    link: "/transcription",
+  },
+  {
     title: "How It Works",
     link: "#how-it-works",
   },
