@@ -7,10 +7,10 @@ export const navigationItems = [
   //   title: "Features",
   //   link: "#features",
   // },
-  {
-    title: "Transcription",
-    link: "/transcription",
-  },
+  // {
+  //   title: "Transcription",
+  //   link: "/transcription",
+  // },
   {
     title: "How It Works",
     link: "#how-it-works",
